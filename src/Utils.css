@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 300;
+  color: #333;
+  background-color: rgb(194, 222, 220);
+}
+.dd--color--white {
+  color: #fff;
+}
+.dd--flex--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dd--grid--center {
+  display: grid;
+  align-items: center;
+}
+.dd--text-align--center {
+  text-align: center;
+}
+.dd--grid--2--cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+.dd--grid--3--cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+.dd--grid--4--cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+.dd--grid--5--cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+.dd--align--start {
+  align-items: start;
+}
+.dd--align--end {
+  align-items: end;
+}
+.dd--justify--space-between {
+  justify-content: space-between;
+}
+.dd--justify--space-evenly {
+  justify-content: space-evenly;
+}
+.dd--justify--space-around {
+  justify-content: space-around;
+}
+.dd--flex-direction--column {
+  flex-direction: column;
+}
+.dd--flex-direction--column-reverse {
+  flex-direction: column-reverse;
+}
+.dd--main--container--100vh {
+  min-height: 100vh;
+}
+.dd--main--container--70vh {
+  min-height: 70vh;
+}
+.dd--list-style--none {
+  list-style: none;
+}
+.dd--text-decoration--none {
+  text-decoration: none;
+}
+.dd--text-decoration--underline {
+  text-decoration: underline;
+}
+.dd--font-weight--400 {
+  font-weight: 400;
+}
+.dd--font-weight--500 {
+  font-weight: 500;
+}
+.dd--font-weight--600 {
+  font-weight: 600;
+}
+.dd--font-weight--700 {
+  font-weight: 700;
+}
+.dd--border-radius--10px {
+  border-radius: 10px;
+}
+.dd--border-radius--8px {
+  border-radius: 8px;
+}
+.dd--border-radius--6px {
+  border-radius: 6px;
+}
+.dd--border-radius--5px {
+  border-radius: 5px;
+}
+.dd--border--none {
+  border: none;
+}
+.dd--outline--none {
+  outline: none;
+}
+.dd--cursor--pointer {
+  cursor: pointer;
+}
+.dd--letter-spacing--1px {
+  letter-spacing: 1px;
+}
+.dd--letter-spacing--08px {
+  letter-spacing: 0.8px;
+}
+.dd--letter-spacing--05px {
+  letter-spacing: 0.5px;
+}
