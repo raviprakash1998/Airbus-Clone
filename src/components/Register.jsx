@@ -16,6 +16,7 @@ const Register = () => {
   const handleClose = () => setOpen(false);
 
   const handleClick = () => {
+    <ToastContainer />
     handleClose();
     navigate("/login");
   };
@@ -94,7 +95,6 @@ const Register = () => {
         >
           Register
         </button>
-        <ToastContainer />
         <hr />
         <p>Already have an account ?</p>
         <div className="login-span">
