@@ -1,0 +1,434 @@
+.head-color {
+  color: #127184;
+}
+/* ------------------------------Navbar---------------------------------- */
+
+.nav-container {
+  height: 70px;
+  padding: 0 70px;
+}
+
+.nav-logo {
+  font-size: 30px;
+  color: rgb(90, 79, 65);
+}
+.logo-image {
+  width: 55px;
+}
+
+.nav-ul-items {
+  display: flex;
+  font-size: 20px;
+  gap: 25px;
+}
+.nav-li-item:hover,
+.nav-li-item:active {
+  color: #0b505e;
+  border-bottom: 2px solid #0b505e;
+}
+
+.login-button {
+  font-size: 20px;
+  padding: 4px 8px;
+  background-color: rgb(111, 134, 133);
+}
+
+.login-button:hover {
+  background-color: rgba(37, 88, 93, 0.746);
+  transform: scale(1.1);
+  transition: ease-in-out 0.4s;
+}
+
+/* ------------------------------Login/Register---------------------------------- */
+
+.card {
+  display: flex;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  width: 300px;
+  min-height: 400px;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.card-heading {
+  font-size: 30px;
+}
+
+.full-name {
+  margin-top: 16px;
+}
+.form-input {
+  font-size: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.login-form-button {
+  font-size: 20px;
+  border: 2px solid #ccc;
+  padding: 10px 20px;
+  color: #777;
+}
+.login-form-button:hover {
+  background-color: #dedbdb;
+}
+.hr {
+  height: 1px;
+  width: 200px;
+  color: #b1a1a119;
+}
+
+.login-form-register-button {
+  color: #27bbd8;
+  padding: 0 8px;
+}
+
+.login-form-register-button:hover {
+  color: #127184;
+  transform: scale(1.1);
+  transition: 0.4s ease-in-out;
+  text-decoration: underline;
+}
+
+/* ------------------------------Hero-Section---------------------------------- */
+
+.hero-main-container {
+  min-height: 50vh;
+}
+.hero-container {
+  background-color: azure;
+  width: 990px;
+  height: 300px;
+}
+.hero-heading {
+  font-size: 27px;
+  color: #127184;
+}
+.search-flights {
+  width: 200px;
+  height: 50px;
+  gap: 25px;
+}
+.input-container {
+  background-color: #ccc;
+  font-size: 20px;
+}
+.hero-label {
+  padding-left: 2px;
+}
+.hero-input {
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #c3c1c1;
+  border-radius: 2px 2px 6px 6px;
+}
+.hero-button {
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid #c3c1c1;
+}
+.hero-button:hover {
+  background-color: #dedbdb;
+}
+/* ------------------------------All-Flights---------------------------------- */
+
+.flight-container {
+  background-color: azure;
+  margin-top: 20px;
+}
+.dd-flight-common {
+  width: 500px;
+  height: 150px;
+}
+.flight-time {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.flight-button {
+  width: 400px;
+  height: 50px;
+  font-size: 16px;
+  color: #434040;
+  border: 1px solid #ccc;
+  margin: 0 50px;
+}
+.flight-button:hover {
+  background-color: #dedbdb;
+}
+
+/* ------------------------------Checkout---------------------------------- */
+
+.dd-checkout-same-container {
+  display: flex;
+  justify-content: left;
+  height: 400px;
+  width: 400px;
+  background-color: rgb(245, 245, 245);
+  margin: 0 auto;
+}
+.name,
+.payment-card,
+.expiry-date,
+.cvv,
+.button {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 6px;
+  margin: 0px 10px 10px;
+}
+.button:hover {
+  background-color: #dedbdb;
+}
+.checkout-card-heading {
+  font-size: 26px;
+  margin: 20px auto;
+}
+.label {
+  font-size: 16px;
+  margin: 2px 12px;
+}
+.fare-items {
+  font-size: 25px;
+  margin: 18px 10px;
+}
+.fare-name {
+  width: 275px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 25px;
+  margin-right: 5px;
+}
+.fare-amount {
+  width: 120px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 25px;
+}
+
+/* -----------------------------Responsive-------------------------- */
+
+@media (max-width: 1024px) {
+  /* ------------------------------Navbar---------------------------------- */
+
+  .nav-container {
+    height: 60px;
+    padding: 0 60px;
+  }
+
+  .nav-logo {
+    font-size: 25px;
+  }
+  .logo-image {
+    width: 45px;
+  }
+
+  .nav-ul-items {
+    font-size: 16px;
+    gap: 20px;
+  }
+
+  .login-button {
+    font-size: 16px;
+    padding: 3px 6px;
+  }
+
+  /* ------------------------------Hero-Section---------------------------------- */
+
+  .hero-container {
+    width: 900px;
+    height: 280px;
+  }
+  .hero-heading {
+    font-size: 25px;
+  }
+  .search-flights {
+    width: 180px;
+    height: 45px;
+    gap: 20px;
+  }
+  .input-container {
+    font-size: 18px;
+  }
+  .hero-input {
+    font-size: 14px;
+    padding: 4px;
+  }
+  .hero-button {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+  /* ------------------------------All-Flights---------------------------------- */
+
+  .dd-flight-common {
+    width: 500px;
+    height: 150px;
+    text-align: center;
+  }
+  .flight-time {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  .flight-button {
+    width: 300px;
+    height: 50px;
+    font-size: 14px;
+    margin: 0 25px;
+  }
+
+  /* ------------------------------Checkout---------------------------------- */
+
+  .dd-checkout-same-container {
+    height: 350px;
+    width: 350px;
+  }
+  .name,
+  .payment-card,
+  .expiry-date,
+  .cvv,
+  .button {
+    font-size: 14px;
+    padding: 4px;
+    margin: 0px 8px 8px;
+  }
+  .checkout-card-heading {
+    font-size: 22px;
+    margin: 16px auto;
+  }
+  .label {
+    font-size: 14px;
+    margin: 2px 10px;
+  }
+  .fare-items {
+    font-size: 20px;
+    margin: 15px 8px;
+  }
+  .fare-name {
+    width: 250px;
+    padding-bottom: 20px;
+    margin-right: 3px;
+  }
+  .fare-amount {
+    width: 100px;
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  /* ------------------------------Navbar---------------------------------- */
+  .nav-container {
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  .nav-logo {
+    display: flex;
+    font-size: 20px;
+  }
+  .logo-image {
+    width: 35px;
+  }
+  .logo-heading {
+    font-size: 16px;
+  }
+  .nav-ul-items {
+    font-size: 12px;
+    gap: 10px;
+  }
+
+  .login-button {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+
+  /* ------------------------------Hero-Section---------------------------------- */
+
+  .hero-container {
+    position: absolute;
+    width: 481px;
+    height: 250px;
+    top: 100px;
+  }
+  .hero-heading {
+    font-size: 25px;
+  }
+  .search-flights {
+    height: 45px;
+    gap: 12px;
+  }
+  .input-container {
+    font-size: 16px;
+    width: 105px;
+  }
+  .hero-input {
+    font-size: 14px;
+    padding: 4px;
+    width: 105px;
+  }
+  .hero-button {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+  /* ------------------------------All-Flights---------------------------------- */
+  .flights-container {
+    position: relative;
+    top: -125px;
+  }
+  .flight-time {
+    gap: 7px;
+  }
+  .flight-button {
+    height: 45px;
+    font-size: 11px;
+    margin: 0 12px;
+  }
+  .dd-flight-common {
+    padding-left: 5px;
+  }
+
+  /* ------------------------------Checkout---------------------------------- */
+
+  .dd-checkout-same-container {
+    display: flex;
+    justify-content: left;
+    height: 400px;
+    width: 400px;
+    background-color: rgb(245, 245, 245);
+    margin: 0 auto;
+  }
+  .name,
+  .payment-card,
+  .expiry-date,
+  .cvv,
+  .button {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 6px;
+    margin: 0px 10px 10px;
+  }
+  .button:hover {
+    background-color: #dedbdb;
+  }
+  .checkout-card-heading {
+    font-size: 26px;
+    margin: 20px auto;
+  }
+  .label {
+    font-size: 16px;
+    margin: 2px 12px;
+  }
+  .fare-items {
+    font-size: 25px;
+    margin: 18px 10px;
+  }
+  .fare-name {
+    width: 275px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 25px;
+    margin-right: 5px;
+  }
+  .fare-amount {
+    width: 120px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 25px;
+  }
+}
