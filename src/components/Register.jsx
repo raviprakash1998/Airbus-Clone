@@ -16,10 +16,10 @@ const Register = () => {
   const handleClose = () => setOpen(false);
 
   const handleClick = () => {
-    <ToastContainer />
     handleClose();
     navigate("/login");
   };
+
   const handleSignUp = () => {
     if (!email.includes("@")) {
       toast.error("Please fill correct email id");
@@ -30,7 +30,7 @@ const Register = () => {
 
       toast.success("Signed up successfully", {
         position: "top-right",
-        autoClose: 1500,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -41,7 +41,7 @@ const Register = () => {
 
       setTimeout(() => {
         navigate("/login");
-      }, 0);
+      }, 3000);
     } else {
       toast.error("Please fill all the fields", {
         position: "top-right",
@@ -57,57 +57,60 @@ const Register = () => {
   };
 
   return (
-    <div className="dd--flex--center dd--main--container--100vh">
-      <div
-        className="dd--flex-direction--column dd--border-radius--5px card"
-        open={open}
-        onClose={handleClose}
-      >
-        <h3 className="head-color card-heading">Register</h3>
-        <input
-          type="text"
-          className="dd--outline--none dd--border-radius--8px form-input full-name"
-          placeholder="Full Name"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          className="dd--outline--none dd--border-radius--8px form-input"
-          placeholder="Username"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          className="dd--outline--none dd--border-radius--8px form-input"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button
-          onClick={handleSignUp}
-          type="submit"
-          className="dd--outline--none dd--border-radius--8px dd--cursor--pointer login-form-button"
+    <>
+      <div className="dd--flex--center dd--main--container--100vh">
+        <div
+          className="dd--flex-direction--column dd--border-radius--5px card"
+          open={open}
+          onClose={handleClose}
         >
-          Register
-        </button>
-        <hr />
-        <p>Already have an account ?</p>
-        <div className="login-span">
-          Click on
-          <span
-            className="dd--text-decoration--none dd--cursor--pointer login-form-register-button"
-            onClick={handleClick}
+          <h3 className="head-color card-heading">Register</h3>
+          <input
+            type="text"
+            className="dd--outline--none dd--border-radius--8px form-input full-name"
+            placeholder="Full Name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            className="dd--outline--none dd--border-radius--8px form-input"
+            placeholder="Username"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            className="dd--outline--none dd--border-radius--8px form-input"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            onClick={handleSignUp}
+            type="submit"
+            className="dd--outline--none dd--border-radius--8px dd--cursor--pointer login-form-button"
           >
-            Login
-          </span>
+            Register
+          </button>
+          <ToastContainer />
+          <hr className="hr" />
+          <p>Already have an account ?</p>
+          <div className="login-span">
+            Click on
+            <span
+              className="dd--text-decoration--none dd--cursor--pointer login-form-register-button"
+              onClick={handleClick}
+            >
+              Login
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

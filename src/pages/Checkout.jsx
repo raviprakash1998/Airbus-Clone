@@ -3,6 +3,8 @@ import "../Utils.css";
 import "../Style.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
   const price = useSelector((state) => state.search.price);
@@ -13,6 +15,24 @@ const Checkout = () => {
       navigate("/login");
     }
   }, []);
+
+  const handlePay = () => {
+    toast.success("Payment successful", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
+
   return (
     <>
       <div className="dd--main--container--100vh dd--grid--center dd--grid--2--cols">
@@ -109,11 +129,13 @@ const Checkout = () => {
           <button
             className="button dd--cursor--pointer dd--outline--none dd--border-radius--10px"
             type="submit"
+            onClick={handlePay}
           >
             Pay
           </button>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

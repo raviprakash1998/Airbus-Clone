@@ -4,7 +4,7 @@ import "../Style.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { UserLogin } from "./SearchedData";
 // import * as r_firebase from "../Rfirebase";
 
@@ -61,7 +61,7 @@ const Navbar = (props) => {
           <img src="./logo.png" alt="Logo-Image" className="logo-image" />
           <span className="logo-heading">Airbus</span>
         </div>
-        <div className="nav-items">
+        {/* <div className="nav-items">
           <ul className="dd--list-style--none nav-ul-items">
             <li className="nav-li-items">
               <Link
@@ -104,7 +104,7 @@ const Navbar = (props) => {
               </Link>
             </li>
           </ul>
-        </div>
+        </div> */}
         {login ? (
           <button
             className="dd--text-decoration--none dd--font-weight--700 dd--color--white dd--border-radius--8px dd--cursor--pointer login-button"
@@ -125,6 +125,7 @@ const Navbar = (props) => {
           </button>
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };
