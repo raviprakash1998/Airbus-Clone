@@ -4,6 +4,8 @@ import "../Style.css";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -20,13 +22,21 @@ const Register = () => {
     navigate("/login");
   };
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     if (!email.includes("@")) {
       toast.error("Please fill correct email id");
     } else if (name && email && password) {
-      localStorage.setItem("name", name);
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        (res) => {
+          const user = res.user;
+          updateProfile(user, {
+            displayName: name,
+          });
+        }
+      );
+      // localStorage.setItem("name", name);
+      // localStorage.setItem("email", email);
+      // localStorage.setItem("password", password);
 
       toast.success("Signed up successfully", {
         position: "top-right",
@@ -38,8 +48,7 @@ const Register = () => {
         progress: undefined,
         theme: "light",
       });
-
-      setTimeout(() => {
+      const user = setTimeout(() => {
         navigate("/login");
       }, 3000);
     } else {

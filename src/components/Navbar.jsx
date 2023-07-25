@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Utils.css";
 import "../Style.css";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { UserLogin } from "./SearchedData";
+import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
 
 const Navbar = (props) => {
+  const [userName, setUserName] = useState("");
   const dispatch = useDispatch();
 
   const login = useSelector((state) => state.search.isUserLogin);
@@ -20,28 +22,41 @@ const Navbar = (props) => {
   const handleClick = () => {
     navigate("/");
   };
-  const handleLogout = () => {
-    localStorage.removeItem("email");
-    dispatch(UserLogin(false));
+  const handleLogout = async () => {
+    // localStorage.removeItem("email");
+    try {
+      await signOut(auth);
+      dispatch(UserLogin(false));
 
-    toast.success("Logout successfully!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+      toast.success("Logout successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
-    if (localStorage.getItem("email")) {
-      dispatch(UserLogin(true));
-    } else {
-      dispatch(UserLogin(false));
-    }
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserName(user.displayName);
+        console.log(user);
+      } else {
+        setUserName("");
+      }
+    });
+    // if (localStorage.getItem("email")) {
+    //   dispatch(UserLogin(true));
+    // } else {
+    //   dispatch(UserLogin(false));
+    // }
   }, []);
   return (
     <>
@@ -101,7 +116,7 @@ const Navbar = (props) => {
             variant="outlined"
             onClick={handleLogout}
           >
-            Logout
+            {userName}
           </button>
         ) : (
           <button

@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { auth, googleProvider } from "../firebase";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -23,47 +24,57 @@ const Login = ({ props }) => {
   const [open, setOpen] = useState(true);
   const handleClose = () => setOpen(false);
 
-  const handleAuth = async () => {
+  const tryDispatchToast = () => {
+    dispatch(UserLogin(true));
+    handleClose();
+    toast.success("Login successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
+  const catchErrorToast = () => {
+    toast.error("User not found, please register", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  const loginWithEmailandPassword = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
+      tryDispatchToast();
     } catch (err) {
-      console.error(err);
+      catchErrorToast();
     }
   };
+
   const googleLogin = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      dispatch(UserLogin(true));
-      handleClose();
-      toast.success("Login successfully!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setTimeout(() => {
-        navigate("/");
-      }, 3000);
+      tryDispatchToast();
     } catch (err) {
-      console.error(err);
+      catchErrorToast();
     }
   };
 
   const handleClick = () => {
     handleClose();
     navigate("/register");
-  };
-
-  const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
-    }
   };
 
   // const handleSignIn = () => {
@@ -126,13 +137,12 @@ const Login = ({ props }) => {
         <button
           type="submit"
           className="dd--outline--none dd--border-radius--8px dd--cursor--pointer login-form-button"
-          onClick={handleAuth}
+          onClick={loginWithEmailandPassword}
         >
           Login
         </button>
         <ToastContainer />
         <button onClick={googleLogin}>Login with Google</button>
-        <button onClick={logout}>Logout</button>
         <hr className="hr" />
 
         <p>You don't have an account ?</p>
