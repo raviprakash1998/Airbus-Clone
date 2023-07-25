@@ -27,9 +27,9 @@ const Register = () => {
       toast.error("Please fill correct email id");
     } else if (name && email && password) {
       await createUserWithEmailAndPassword(auth, email, password).then(
-        (res) => {
+        async (res) => {
           const user = res.user;
-          updateProfile(user, {
+          await updateProfile(user, {
             displayName: name,
           });
         }
