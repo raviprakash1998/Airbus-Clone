@@ -6,19 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { UserLogin } from "./SearchedData";
-// import * as r_firebase from "../Rfirebase";
 
 const Navbar = (props) => {
-  // const handleAuth = () => {
-  //   r_firebase.auth
-  //     .signInWithPopup(provider)
-  //     .then((result) => {
-  //       console.log(result);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.message);
-  //     });
-  // };
   const dispatch = useDispatch();
 
   const login = useSelector((state) => state.search.isUserLogin);
