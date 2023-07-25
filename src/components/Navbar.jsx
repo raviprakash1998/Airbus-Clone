@@ -23,7 +23,6 @@ const Navbar = (props) => {
     navigate("/");
   };
   const handleLogout = async () => {
-    // localStorage.removeItem("email");
     try {
       await signOut(auth);
       dispatch(UserLogin(false));
@@ -47,16 +46,10 @@ const Navbar = (props) => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setUserName(user.displayName);
-        console.log(user);
       } else {
         setUserName("");
       }
     });
-    // if (localStorage.getItem("email")) {
-    //   dispatch(UserLogin(true));
-    // } else {
-    //   dispatch(UserLogin(false));
-    // }
   }, []);
   return (
     <>

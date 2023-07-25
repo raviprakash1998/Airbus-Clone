@@ -7,12 +7,7 @@ import { UserLogin } from "./SearchedData";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth, googleProvider } from "../firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
 const Login = ({ props }) => {
   const [email, setEmail] = useState("");
@@ -77,41 +72,6 @@ const Login = ({ props }) => {
     navigate("/register");
   };
 
-  // const handleSignIn = () => {
-  //   if (!email || !password) {
-  //     toast.error("Please fill the input fields!");
-  //   } else if (!email.includes("@")) {
-  //     toast.error("Please fill valid email id");
-  //   } else if (localStorage.getItem("email") === email) {
-  //     dispatch(UserLogin(true));
-  //     handleClose();
-  //     toast.success("Login successfully!", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //     setTimeout(() => {
-  //       navigate("/");
-  //     }, 6000);
-  //   } else {
-  //     toast.error("User not found, please register", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //   }
-  // };
-
   return (
     <div className="dd--flex--center dd--main--container--100vh">
       <div
@@ -142,7 +102,12 @@ const Login = ({ props }) => {
           Login
         </button>
         <ToastContainer />
-        <button onClick={googleLogin}>Login with Google</button>
+        <button
+          className="dd--outline--none dd--border-radius--8px dd--cursor--pointer google-form-button"
+          onClick={googleLogin}
+        >
+          Login with Google
+        </button>
         <hr className="hr" />
 
         <p>You don't have an account ?</p>

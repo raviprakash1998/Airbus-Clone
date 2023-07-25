@@ -73,6 +73,16 @@
 .login-form-button:hover {
   background-color: #dedbdb;
 }
+.google-form-button {
+  background-color: #27bbd8;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 16px;
+}
+.google-form-button:hover {
+  background-color: #127184;
+  transition: ease-in-out 0.4s;
+}
 .hr {
   height: 1px;
   width: 200px;
@@ -133,6 +143,9 @@
 }
 /* ------------------------------All-Flights---------------------------------- */
 
+.loading {
+  text-align: center;
+}
 .flight-container {
   background-color: azure;
   margin-top: 20px;

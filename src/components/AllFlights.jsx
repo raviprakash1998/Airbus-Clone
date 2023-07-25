@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { flightPrice } from "./SearchedData";
+import { toast } from "react-toastify";
 
 const AllFlights = () => {
   const [allFlights, setAllFlights] = useState([]);
@@ -63,9 +64,6 @@ const AllFlights = () => {
     dispatch(flightPrice(price));
 
     navigate("/checkout");
-    if (!localStorage.getItem("email")) {
-      toast.error("Error");
-    }
   };
 
   return (
@@ -74,7 +72,7 @@ const AllFlights = () => {
         {notAvailable ? (
           <h1>Flights are not available</h1>
         ) : loading ? (
-          <h1>Loading...</h1>
+          <h1 className="loading">Loading...</h1>
         ) : (
           allFlights.map((flight) => {
             return (

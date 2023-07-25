@@ -1,36 +1,52 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Utils.css";
 import "../Style.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { auth } from "../firebase";
 
 const Checkout = () => {
+  const [nameOnCard, setNameOnCard] = useState();
+  const [numberOnCard, setNumberOnCard] = useState();
+  const [cvvOnCard, setCvvOnCard] = useState();
   const price = useSelector((state) => state.search.price);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!localStorage.getItem("email")) {
+    if (!auth.currentUser) {
       navigate("/login");
     }
   }, []);
 
   const handlePay = () => {
-    toast.success("Payment successful", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
+    if (nameOnCard && numberOnCard && cvvOnCard) {
+      toast.success("Payment successful", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    } else {
+      toast.error("Please fill all the fields", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (
@@ -67,6 +83,9 @@ const Checkout = () => {
             className="name dd--outline--none dd--border-radius--10px"
             id="name"
             placeholder="Name on card"
+            required
+            value={nameOnCard}
+            onChange={(e) => setNameOnCard(e.target.value)}
           />
           <label className="label" htmlFor="card">
             Card Number:
@@ -76,12 +95,18 @@ const Checkout = () => {
             className="payment-card dd--outline--none dd--border-radius--10px"
             id="card"
             placeholder="1111-2222-3333-4444"
+            required
+            value={numberOnCard}
+            onChange={(e) => setNumberOnCard(e.target.value)}
           />
           <label className="label" htmlFor="exp-card">
             Expiry Date:
           </label>
           <div id="exp-card">
-            <select className="expiry-date dd--outline--none dd--border-radius--10px">
+            <select
+              className="expiry-date dd--outline--none dd--border-radius--10px"
+              required
+            >
               <option>January</option>
               <option>February</option>
               <option>March</option>
@@ -96,7 +121,10 @@ const Checkout = () => {
               <option>December</option>
             </select>
             /
-            <select className="expiry-date dd--outline--none dd--border-radius--10px">
+            <select
+              className="expiry-date dd--outline--none dd--border-radius--10px"
+              required
+            >
               <option>2015</option>
               <option>2016</option>
               <option>2017</option>
@@ -124,6 +152,9 @@ const Checkout = () => {
             placeholder="CVV"
             min="100"
             max="999"
+            required
+            value={cvvOnCard}
+            onChange={(e) => setCvvOnCard(e.target.value)}
           />
 
           <button

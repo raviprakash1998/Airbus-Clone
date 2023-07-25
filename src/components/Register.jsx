@@ -34,9 +34,6 @@ const Register = () => {
           });
         }
       );
-      // localStorage.setItem("name", name);
-      // localStorage.setItem("email", email);
-      // localStorage.setItem("password", password);
 
       toast.success("Signed up successfully", {
         position: "top-right",
@@ -48,7 +45,7 @@ const Register = () => {
         progress: undefined,
         theme: "light",
       });
-      const user = setTimeout(() => {
+      setTimeout(() => {
         navigate("/login");
       }, 3000);
     } else {
