@@ -5,15 +5,16 @@
 
 .nav-container {
   height: 70px;
-  padding: 0 70px;
+  padding: 0 100px;
 }
 
 .nav-logo {
-  font-size: 30px;
-  color: rgb(90, 79, 65);
+  font-size: 35px;
+  color: #5a4f41;
+  cursor: pointer;
 }
 .logo-image {
-  width: 55px;
+  width: 68px;
 }
 
 .nav-ul-items {
@@ -28,13 +29,13 @@
 }
 
 .login-button {
-  font-size: 20px;
-  padding: 4px 8px;
-  background-color: rgb(111, 134, 133);
+  font-size: 22px;
+  padding: 5px 10px;
+  background-color: #6f8685;
 }
 
 .login-button:hover {
-  background-color: rgba(37, 88, 93, 0.746);
+  background-color: #25585dbe;
   transform: scale(1.1);
   transition: ease-in-out 0.4s;
 }
@@ -44,7 +45,7 @@
 .card {
   display: flex;
   align-items: center;
-  background-color: rgb(245, 245, 245);
+  background-color: #f5f5f5;
   width: 300px;
   min-height: 400px;
   gap: 20px;
@@ -74,7 +75,7 @@
   background-color: #dedbdb;
 }
 .google-form-button {
-  background-color: #27bbd8;
+  background-color: #6f8685;
   padding: 6px 12px;
   color: #fff;
   font-size: 16px;
@@ -104,7 +105,8 @@
 /* ------------------------------Hero-Section---------------------------------- */
 
 .hero-main-container {
-  min-height: 50vh;
+  height: 50vh;
+  flex: 1;
 }
 .hero-container {
   background-color: azure;
@@ -178,7 +180,7 @@
   justify-content: left;
   height: 400px;
   width: 400px;
-  background-color: rgb(245, 245, 245);
+  background-color: #f5f5f5;
   margin: 0 auto;
 }
 .name,
@@ -218,6 +220,21 @@
   padding-bottom: 25px;
 }
 
+/* ------------------------------Footer-Section---------------------------------- */
+
+.footer {
+  font-size: 20px;
+  width: 100%;
+  height: 80px;
+  background-color: #46656358;
+  margin-top: 40px;
+}
+.footer span {
+  color: #0b505e;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+
 /* -----------------------------Responsive-------------------------- */
 
 @media (max-width: 1024px) {
@@ -225,14 +242,14 @@
 
   .nav-container {
     height: 60px;
-    padding: 0 60px;
+    padding: 0 80px;
   }
 
   .nav-logo {
-    font-size: 25px;
+    font-size: 30px;
   }
   .logo-image {
-    width: 45px;
+    width: 48px;
   }
 
   .nav-ul-items {
@@ -241,30 +258,35 @@
   }
 
   .login-button {
-    font-size: 16px;
-    padding: 3px 6px;
+    font-size: 20px;
+    padding: 4px 8px;
   }
 
   /* ------------------------------Hero-Section---------------------------------- */
+  .hero-main-container {
+    height: 35vh;
+  }
 
   .hero-container {
-    width: 900px;
-    height: 280px;
+    width: 625px;
+    height: 250px;
   }
   .hero-heading {
     font-size: 25px;
   }
   .search-flights {
     width: 180px;
-    height: 45px;
-    gap: 20px;
+    height: 35px;
+    gap: 10px;
   }
   .input-container {
-    font-size: 18px;
+    font-size: 16px;
+    width: 140px;
   }
   .hero-input {
     font-size: 14px;
-    padding: 4px;
+    padding: 3px;
+    width: 140px;
   }
   .hero-button {
     font-size: 14px;
@@ -330,18 +352,15 @@
   /* ------------------------------Navbar---------------------------------- */
   .nav-container {
     height: 50px;
-    padding: 0 20px;
+    padding: 0 60px;
   }
 
   .nav-logo {
     display: flex;
-    font-size: 20px;
+    font-size: 25px;
   }
   .logo-image {
-    width: 35px;
-  }
-  .logo-heading {
-    font-size: 16px;
+    width: 38px;
   }
   .nav-ul-items {
     font-size: 12px;
@@ -349,20 +368,21 @@
   }
 
   .login-button {
-    font-size: 12px;
-    padding: 3px 6px;
+    font-size: 15px;
+    padding: 3.5px 7px;
   }
 
   /* ------------------------------Hero-Section---------------------------------- */
 
+  .hero-main-container {
+    height: 30vh;
+  }
   .hero-container {
-    position: absolute;
-    width: 481px;
-    height: 250px;
-    top: 100px;
+    max-width: 500px;
+    height: 210px;
   }
   .hero-heading {
-    font-size: 25px;
+    font-size: 22px;
   }
   .search-flights {
     height: 45px;
@@ -383,7 +403,6 @@
   }
   /* ------------------------------All-Flights---------------------------------- */
   .flights-container {
-    position: relative;
     top: -125px;
   }
   .flight-time {
@@ -399,13 +418,17 @@
   }
 
   /* ------------------------------Checkout---------------------------------- */
-
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 100px auto;
+    gap: 30px;
+  }
   .dd-checkout-same-container {
     display: flex;
     justify-content: left;
     height: 400px;
     width: 400px;
-    background-color: rgb(245, 245, 245);
     margin: 0 auto;
   }
   .name,

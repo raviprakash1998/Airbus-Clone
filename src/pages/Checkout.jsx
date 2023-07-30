@@ -51,7 +51,7 @@ const Checkout = () => {
 
   return (
     <>
-      <div className="dd--main--container--100vh dd--grid--center dd--grid--2--cols">
+      <div className="dd--main--container--100vh dd--grid--center dd--grid--2--cols main-container">
         <div className="fare-summary-container dd--border-radius--10px dd--flex-direction--column dd-checkout-same-container">
           <h3 className="head-color checkout-card-heading">Fare Summary</h3>
           <div className="dd--flex--center dd--justify--space-between fare-items">
