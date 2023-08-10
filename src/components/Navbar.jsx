@@ -103,17 +103,19 @@ const Navbar = (props) => {
           </ul>
         </div> */}
         {login ? (
-          <button
-            className="dd--text-decoration--none dd--font-weight--700 dd--color--white dd--border-radius--8px dd--cursor--pointer login-button"
-            color="inherit"
-            variant="outlined"
-            onClick={handleLogout}
-          >
-            {userName}
-          </button>
+          <>
+            <div class="dropdown">
+              <button className="dd--font-weight--700 dd--color--white dd--border-radius--8px dd--cursor--pointer login-button">
+                {userName}
+              </button>
+              <div class="dd--cursor--pointer dd--border-radius--8px dropdown-content">
+                <a onClick={handleLogout}>Logout</a>
+              </div>
+            </div>
+          </>
         ) : (
           <button
-            className="dd--text-decoration--none dd--font-weight--700 dd--color--white dd--border-radius--8px dd--cursor--pointer login-button"
+            className="dd--font-weight--700 dd--color--white dd--border-radius--8px dd--cursor--pointer login-button"
             color="inherit"
             variant="outlined"
             onClick={handleOpen}

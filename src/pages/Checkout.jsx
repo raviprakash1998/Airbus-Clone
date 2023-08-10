@@ -15,7 +15,7 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!auth.currentUser) {
+    if (!localStorage.getItem("email")) {
       navigate("/login");
     }
   }, []);
