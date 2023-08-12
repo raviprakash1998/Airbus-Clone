@@ -4,11 +4,19 @@ import "../Style.css";
 import { useDispatch } from "react-redux";
 import { fromToSetInRedux } from "./SearchedData";
 
+const getDate = () => {
+  const today = new Date();
+  const date = today.getDate();
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  return `${date}/${month}/${year}`;
+};
+
 const HeroSection = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-  const [departure, setDeparture] = useState("");
-  const [returnBack, setReturnBack] = useState("");
+  const [departure, setDeparture] = useState(getDate());
+  const [returnBack, setReturnBack] = useState(getDate());
 
   const dispatch = useDispatch();
 
@@ -18,7 +26,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div>
+    <div className="dd--flex--center hero-section">
       <div className="dd--flex--center hero-main-container">
         <div className="dd--flex--center dd--justify--space-evenly dd--flex-direction--column dd--border-radius--8px hero-container">
           <h3 className="dd--letter-spacing--1px hero-heading">
@@ -66,7 +74,6 @@ const HeroSection = () => {
                 value={departure}
                 name=""
                 id="departure"
-                placeholder="01/07/2023"
                 onChange={(e) => setDeparture(e.target.value)}
               />
             </div>

@@ -137,6 +137,12 @@
 }
 
 /* ------------------------------Hero-Section---------------------------------- */
+.hero-section {
+  width: 100%;
+  background: url("./2.jpg") no-repeat bottom fixed;
+  background-size: cover;
+  height: 60vh;
+}
 
 .hero-main-container {
   height: 50vh;
@@ -184,7 +190,7 @@
 }
 .flight-container {
   background-color: azure;
-  margin-top: 20px;
+  margin: 70px 100px 20px 400px;
 }
 .dd-flight-common {
   width: 500px;

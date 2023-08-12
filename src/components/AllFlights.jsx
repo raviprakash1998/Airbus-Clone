@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { flightPrice } from "./SearchedData";
-import { toast } from "react-toastify";
 
 const AllFlights = () => {
   const [allFlights, setAllFlights] = useState([]);
@@ -98,17 +97,16 @@ const AllFlights = () => {
                 </div>
 
                 <div className="dd--flex-direction--column flight-time dd--flex--center dd--justify--space-evenly dd-flight-common">
-                  <div className="flight-to">{flight.to}</div>
+                  <div className="flight-to">
+                    {flight.via[0]} <br />
+                    {flight.to}
+                  </div>
                   <div className="flight-return-date">
                     {flight.return.returnDate}
                   </div>
                   <div className="flight-return-time">
                     {flight.return.returnTime}
                   </div>
-                </div>
-
-                <div className="flight-via dd--flex--center dd--justify--space-evenly dd-flight-common">
-                  {flight.via[0]}
                 </div>
 
                 <div className="flight-price dd--flex--center dd--justify--space-evenly dd-flight-common">

@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { from: "", to: "", price: 0, isUserLogin: false };
+const initialState = {
+  from: "",
+  to: "",
+  price: 0,
+  isUserLogin: false,
+  airlineName: "",
+};
 
 const SearchedData = createSlice({
   name: "search",
@@ -15,6 +21,9 @@ const SearchedData = createSlice({
     },
     UserLogin: (state, action) => {
       state.isUserLogin = action.payload;
+    },
+    airlineName: (state, action) => {
+      state.airlineName = action.payload;
     },
   },
 });
