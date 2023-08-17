@@ -5,17 +5,18 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { auth } from "../firebase";
 
 const Checkout = () => {
   const [nameOnCard, setNameOnCard] = useState();
   const [numberOnCard, setNumberOnCard] = useState();
   const [cvvOnCard, setCvvOnCard] = useState();
+
   const price = useSelector((state) => state.search.price);
+  const isUserLogin = useSelector((state) => state.search.isUserLogin);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!localStorage.getItem("email")) {
+    if (!isUserLogin) {
       navigate("/login");
     }
   }, []);

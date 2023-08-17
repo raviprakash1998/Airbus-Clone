@@ -28,6 +28,6 @@ const SearchedData = createSlice({
   },
 });
 
-export const { fromToSetInRedux, flightPrice, UserLogin } =
+export const { fromToSetInRedux, flightPrice, UserLogin, airlineName } =
   SearchedData.actions;
 export default SearchedData.reducer;
